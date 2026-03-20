@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Menü</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="menu-data.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-top">
+          <div class="logo-wrap">
+            <img id="restaurant-logo" src="" alt="Logo" />
+            <div class="header-info">
+              <h1 id="restaurant-name"></h1>
+              <p id="restaurant-tagline"></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="qr-btn" id="qr-btn" aria-label="QR Kodu Göster">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="3" height="3"/><rect x="19" y="14" width="2" height="2"/>
+                <rect x="14" y="19" width="2" height="2"/><rect x="18" y="18" width="3" height="3"/>
+              </svg>
+            </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Tema değiştir">
+              <span class="theme-icon">🌙</span>
+            </button>
+          </div>
+        </div>
+        <div class="header-meta">
+          <span id="restaurant-hours"></span>
+          <span class="divider">·</span>
+          <span id="restaurant-phone"></span>
+        </div>
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Ürün ara..." />
+          <button class="search-clear" id="search-clear" aria-label="Temizle">✕</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="category-nav" id="category-nav">
+      <div class="category-nav-inner">
+        <button class="cat-btn active" data-category="all">Tümü</button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div id="no-result" class="no-result hidden">
+        <div class="no-result-icon">🔍</div>
+        <p>Ürün bulunamadı</p>
+      </div>
+      <div id="menu-container"></div>
+    </main>
+
+    <footer class="footer">
+      <p id="footer-text"></p>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="" />
+        <span class="modal-badge" id="modal-badge"></span>
+      </div>
+      <div class="modal-body">
+        <h2 id="modal-name"></h2>
+        <p id="modal-desc"></p>
+        <div class="modal-footer">
+          <span id="modal-price"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qr-modal-overlay" id="qr-modal-overlay">
+    <div class="qr-modal">
+      <button class="qr-modal-close" id="qr-modal-close">✕</button>
+      <h3 class="qr-modal-title">Menüyü Paylaş</h3>
+      <p class="qr-modal-sub">QR kodu okutarak menüye ulaşabilirsiniz</p>
+      <div id="qr-code-box"></div>
+      <p class="qr-modal-url" id="qr-modal-url"></p>
+      <button class="qr-download-btn" id="qr-download-btn">İndir</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
