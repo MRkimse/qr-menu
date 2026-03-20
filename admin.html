@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="admin.css" />
+  <script src="menu-data.js"></script>
+</head>
+<body>
+
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">⚙️</div>
+      <h2>Admin Girişi</h2>
+      <p class="login-sub">Devam etmek için şifrenizi girin</p>
+      <div class="input-wrap">
+        <input type="password" id="pw-input" placeholder="Şifre" autocomplete="off" />
+        <button id="pw-toggle" type="button">👁</button>
+      </div>
+      <div class="login-error hidden" id="login-error">Şifre yanlış, tekrar deneyin.</div>
+      <button class="btn-primary" id="login-btn">Giriş Yap</button>
+    </div>
+  </div>
+
+  <div id="admin-screen" class="hidden">
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <div class="admin-header-left">
+          <span class="admin-logo">⚙️</span>
+          <div>
+            <h1>Admin Panel</h1>
+            <p id="admin-sub">Menü Yönetimi</p>
+          </div>
+        </div>
+        <div class="admin-header-right">
+          <a href="index.html" class="btn-ghost" target="_blank">Menüyü Gör</a>
+          <button class="btn-danger-sm" id="logout-btn">Çıkış</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-body">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-search" class="search-input" placeholder="Ürün ara..." />
+        </div>
+        <div class="toolbar-right">
+          <select id="cat-filter" class="select-input">
+            <option value="all">Tüm Kategoriler</option>
+          </select>
+          <button class="btn-success" id="save-btn">Kaydet</button>
+          <button class="btn-ghost-sm" id="reset-btn">Sıfırla</button>
+        </div>
+      </div>
+
+      <div class="toast hidden" id="toast"></div>
+
+      <div class="items-table-wrap">
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th style="width:64px">Görsel</th>
+              <th>Ürün Adı</th>
+              <th>Kategori</th>
+              <th style="width:160px">Resim URL</th>
+              <th style="width:110px">Fiyat (₺)</th>
+              <th style="width:110px">Rozet</th>
+            </tr>
+          </thead>
+          <tbody id="items-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="admin.css" />
+  <script src="menu-data.js"></script>
+</head>
+<body>
+
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">⚙️</div>
+      <h2>Admin Girişi</h2>
+      <p class="login-sub">Devam etmek için şifrenizi girin</p>
+      <div class="input-wrap">
+        <input type="password" id="pw-input" placeholder="Şifre" autocomplete="off" />
+        <button id="pw-toggle" type="button">👁</button>
+      </div>
+      <div class="login-error hidden" id="login-error">Şifre yanlış, tekrar deneyin.</div>
+      <button class="btn-primary" id="login-btn">Giriş Yap</button>
+    </div>
+  </div>
+
+  <div id="admin-screen" class="hidden">
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <div class="admin-header-left">
+          <span class="admin-logo">⚙️</span>
+          <div>
+            <h1>Admin Panel</h1>
+            <p id="admin-sub">Menü Yönetimi</p>
+          </div>
+        </div>
+        <div class="admin-header-right">
+          <a href="index.html" class="btn-ghost" target="_blank">Menüyü Gör</a>
+          <button class="btn-danger-sm" id="logout-btn">Çıkış</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-body">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-search" class="search-input" placeholder="Ürün ara..." />
+        </div>
+        <div class="toolbar-right">
+          <select id="cat-filter" class="select-input">
+            <option value="all">Tüm Kategoriler</option>
+          </select>
+          <button class="btn-success" id="save-btn">Kaydet</button>
+          <button class="btn-ghost-sm" id="reset-btn">Sıfırla</button>
+        </div>
+      </div>
+
+      <div class="toast hidden" id="toast"></div>
+
+      <div class="items-table-wrap">
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th style="width:64px">Görsel</th>
+              <th>Ürün Adı</th>
+              <th>Kategori</th>
+              <th style="width:160px">Resim URL</th>
+              <th style="width:110px">Fiyat (₺)</th>
+              <th style="width:110px">Rozet</th>
+            </tr>
+          </thead>
+          <tbody id="items-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
